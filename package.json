@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/gy134340/node/issues"
   },
-  "homepage": "https://github.com/gy134340/node#readme"
+  "homepage": "https://github.com/gy134340/node#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "cheerio": "^0.22.0",
+    "superagent": "^3.4.1"
+  }
 }
