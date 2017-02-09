@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "learn node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gy134340/node.git"
+  },
+  "author": "gy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gy134340/node/issues"
+  },
+  "homepage": "https://github.com/gy134340/node#readme"
+}
