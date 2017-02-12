@@ -15,6 +15,7 @@
     "superagent": "^3.4.1"
   },
   "devDependencies": {
+    "async": "^2.1.4",
     "express": "^4.14.1",
     "mysql": "^2.13.0"
   }
