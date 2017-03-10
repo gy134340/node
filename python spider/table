@@ -1,0 +1,67 @@
+/**
+ * 准备爬的目录及对应的表名
+ */
+
+{
+	"小说": "novel",
+	"随笔": "essay",
+	"日本文学": "japan",
+	"散文": "prose",
+	"诗歌": "poetry",
+	"童话": "fairytales",
+	"名著": "masterpiece",
+	"推理": "reasoning",
+	"青春": "youth",
+	"科幻": "science",
+	"漫画": "cartoon",
+	"武侠": "swordsman",
+	"奇幻": "fantasy",
+	"历史": "history",
+	"哲学": "philosophy",
+	"传记": "biography",
+	"回忆录": "memoir",
+	"励志": "selfimprovement",
+	"旅行": "travel",
+	"科普": "polularscience",
+	"编程": "program",
+	"互联网": "internet",
+	"算法": "algorithm"
+}
+
+
+// 字段
+名字：name
+作者：author
+评分：rate
+评价人数：paticipant
+图片：img_url
+链接：url
+内容简介：intro
+作者简介：author_intro
+标签：tags "|" 
+
+// 另三张表
+评论：comment
+笔记：note
+
+豆列：bean
+// 另一张豆列(不用再建一个每个豆列包含书籍的表，join其他的即可)
+	豆列名字：name
+	链接：url
+	收藏人数：collects
+	推荐人数：recs
+
+I had a dream, near the Egyptian pyramids, buried a jewelry.
+
+
+
+
+
+
+
+
+
+
+
+
+
