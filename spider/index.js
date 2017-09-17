@@ -12,20 +12,21 @@ var async = require('async');
 
 var app = express();
 var connection;
-var baseUrl = 'https://www.douban.com/group/shanghaizufang/discussion?start=0';
+var baseUrl = 'https://www.douban.com/group/shanghaizufang/discussion?start=';
 var urls = [];
-for(var i = 0; i < 100; i++){
 
+for(var i = 0; i < 200; i++){
+	var pageUrl = baseUrl + parseInt(i * 25);
 	// note: do more here
-	urls.push(baseUrl);
+	urls.push(pageUrl);
 }
-console.log('urls',urls);
+// console.log('urls',urls);
 
 // 异步抓取
 async.mapLimit(urls, 4, function (url, callback){
 	getHtml(url, callback);
-},function (err, result) {
-	console.log(err);
+}, function (err, result) {
+	// console.log(err);
 });
 
 // note: 需要传入calback
@@ -36,7 +37,10 @@ function getHtml (url, callback) {
 		}
 
 		analyze(res);
-		callback(null, url + ' html content');
+		setTimeout(function() {
+			callback(null, url + ' html content');
+		}, 1000);
+		
 	});
 }
 
@@ -44,23 +48,23 @@ function getHtml (url, callback) {
 function analyze (res) {
 	var dt = [];
 	var $ = cheerio.load(res.text);
+	var tags = ['10号线', '江湾体育场','新江湾城', '殷高东路', '三门路', '同济大学', '四平路', '邮电新村'];
 	$("#content .article td.title a").each(function(index, ele){
 		var href = $(ele).attr('href');
-		var title = $(ele).text();
+		var title = $(ele).attr('title');
 		var date = $(ele).parent().siblings('.time').text();
-		var obj = {
-			href:href,
-			title:title,
-			date:date
-		};
-		dt.push(obj);
+
+		for (var i = 0, len = tags.length; i <= len; i++) {
+			if (title.indexOf(tags[i]) > -1) {
+				var link = "<a href='"+href+"'>"+ title +"<a/>";
+				console.log(link)
+				dt.push(link);
+				break;
+			}
+		}
+
+		
 	});
-	console.log('urls', dt);
-
-
-	// 查询
-	connect (myInsert, dt);
-	
 }
 
 // mysql connect
